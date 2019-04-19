@@ -31,6 +31,7 @@ public class TableNames {
             preHeaterTypeTable = "pre_heater_types",
             preHeaterTable = "pre_heater",
     //Attachments
+            attachmentsTable = "attachments",
             attachPumpTypesTable = "attach_pump_types",
             attachPumpTable = "attach_pump",
             fanPumpTypesTable = "fan_pump_types",
@@ -41,7 +42,7 @@ public class TableNames {
             extraAttachMotorTable = "extra_attach_motor",
             hydDistributorTypeTable = "hyd_distributor_types",
             hydDustributorTable = "hyd_distributor",
-            hydCylindersTable = "hyd_cilynders",
+            hydCylindersTable = "hyd_cylinders",
             hydCylinderTypesTable = "hyd_cyl_otv_lift",
             hydLockSkewTable = "hyd_lock_skew",
             frontAttachmentsTable = "front_attach_type",

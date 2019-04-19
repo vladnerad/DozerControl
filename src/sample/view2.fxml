@@ -444,7 +444,7 @@
                                           <Label text="Серийный номер:" />
                                        </children>
                                     </StackPane>
-                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <TextField fx:id="tfAttachPump" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" />
                                     <StackPane GridPane.rowIndex="1">
                                        <children>
                                           <Label text="Гидронасос привода вентилятора:" />
@@ -475,8 +475,8 @@
                                           <Label text="Серийный номер:" />
                                        </children>
                                     </StackPane>
-                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <TextField fx:id="tfFanPump" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <TextField fx:id="tfFanMot" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                     <StackPane GridPane.rowIndex="3">
                                        <children>
                                           <Label text="Гидрораспределитель:" />
@@ -492,7 +492,7 @@
                                           <Label text="Серийный номер:" />
                                        </children>
                                     </StackPane>
-                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <TextField fx:id="tfHydDistributor" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                     <StackPane GridPane.rowIndex="4">
                                        <children>
                                           <Label text="Переднее оборудование КД:" />

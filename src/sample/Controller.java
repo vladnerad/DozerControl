@@ -325,12 +325,33 @@ public class Controller {
         else if(tabAttachments.isSelected()){
             HydCylEntityToSave hcets = new HydCylEntityToSave();
 
+            hcets.setId_hyd_cyl_otv_lift(DBHelper.getIdFromModel(cbHCOtvLift.getValue(), TableNames.hydCylinderTypesTable));
+            hcets.setId_hyd_cyl_skew(DBHelper.getIdFromModel(cbHCOtvSkew.getValue(), TableNames.hydCylinderTypesTable));
+            hcets.setId_hyd_cyl_ripper(DBHelper.getIdFromModel(cbHCRipper.getValue(), TableNames.hydCylinderTypesTable));
+            hcets.setId_extra_hyd_cyl(DBHelper.getIdFromModel(cbHCExtra.getValue(), TableNames.hydCylinderTypesTable));
+            hcets.setId_hyd_lock_skew(DBHelper.getIdFromModel(cbHydLockSkew.getValue(), TableNames.hydLockSkewTable));
+            hcets.setId_front_attach_type(DBHelper.getIdFromModel(cbFrontAttachDoc.getValue(), TableNames.frontAttachmentsTable));
+            hcets.setId_back_attach_type(DBHelper.getIdFromModel(cbBackAttachDoc.getValue(), TableNames.backAttachmentsTable));
+            hcets.setId_winch(DBHelper.getIdFromModel(cbWinch.getValue(), TableNames.winchTable));
+
+            AttachEntityToSave aets = new AttachEntityToSave(hcets);
+
+            aets.setId_attach_pump_types(DBHelper.getIdFromModel(cbAttachPump.getValue(), TableNames.attachPumpTypesTable));
+            aets.setId_fan_pump_types(DBHelper.getIdFromModel(cbFanPump.getValue(), TableNames.fanPumpTypesTable));
+            aets.setId_fan_mot_types(DBHelper.getIdFromModel(cbFanHMot.getValue(), TableNames.fanMotorTypesTable));
+            aets.setId_hyd_distributor_types(DBHelper.getIdFromModel(cbHydDistrib.getValue(), TableNames.hydDistributorTypeTable));
+
+            aets.setSerial_attach_pump(tfAttachPump.getText());
+            aets.setSerial_fan_pump(tfFanPump.getText());
+            aets.setSerial_fan_motor(tfFanMot.getText());
+            aets.setSerial_hyd_distributor(tfHydDistributor.getText());
+
 
             stateLabel.setText("Конфигурация навесного оборудования успешно сохранена, заполните остальные вкладки");
             ControllerHelper.setUneditableFields(
                     new ArrayList<>(List.of(cbAttachPump, cbFanPump, cbFanHMot, cbHydDistrib, cbFrontAttachDoc, cbBackAttachDoc, cbWinch, cbHydLockSkew, cbHCOtvLift, cbHCOtvSkew, cbHCRipper, cbHCExtra)),
                     new ArrayList<>(List.of(tfAttachPump, tfFanPump, tfFanMot, tfHydDistributor)));
-            savable = hcets;
+            savable = aets;
         }
 
         else savable = null;
