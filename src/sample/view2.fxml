@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Действия">
+              <items>
+                  <MenuItem fx:id="passView" mnemonicParsing="false" onAction="#onPassViewClicked" text="Просмотр паспорта" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem fx:id="newPassp" mnemonicParsing="false" onAction="#onNewPasspClicked" text="Новый пасспорт" />
+                  <MenuItem mnemonicParsing="false" text="Редактировать пасспорт" />
+                  <MenuItem mnemonicParsing="false" text="Удалить пасспорт" />
+              </items>
+            </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <BorderPane prefHeight="571.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+         <center>
+            <TabPane fx:id="tabPane" prefHeight="374.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab fx:id="tabTransmission" text="Трансмиссия">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="900.0">
+                           <children>
+                              <GridPane layoutX="7.0" layoutY="4.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1029.0" minWidth="10.0" prefWidth="402.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="50.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="10.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="50.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="200.0" minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label alignment="CENTER" text="Насоссы хода:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label alignment="CENTER" text="Гидромоторы хода:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbPumpType" onAction="#onPumpBrandChoosen" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="cbHMotType" onAction="#onMotBrandChoosen" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cbConcrHPtype" onAction="#onConcrPumpChoosen" prefWidth="150.0" GridPane.columnIndex="2" />
+                                    <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <children>
+                                          <GridPane prefHeight="52.0" prefWidth="411.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="150.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="150.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <Label text="Левый №" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <TextField fx:id="tfHMLsn" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label text="Правый №" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <TextField fx:id="tfHMRsn" maxWidth="-Infinity" minWidth="140.0" prefWidth="150.0" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane GridPane.columnIndex="3">
+                                       <children>
+                                          <GridPane prefHeight="101.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="50.0" prefWidth="150.0" />
+                                              <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="290.0" minWidth="50.0" prefWidth="150.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="55.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="54.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Левый №" textAlignment="CENTER" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane GridPane.columnIndex="1">
+                                                   <children>
+                                                      <TextField fx:id="tfPumpLsn" prefHeight="25.0" prefWidth="150.0">
+                                                         <StackPane.margin>
+                                                            <Insets />
+                                                         </StackPane.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Правый №" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <TextField fx:id="tfPumpRsn" prefHeight="25.0" prefWidth="150.0" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <Separator prefHeight="0.0" prefWidth="371.0" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="Планетарные редукторы:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbPlanetReduct" onAction="#onPlanetReductChoosen" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="cbConcrPlRed" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                    <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                       <children>
+                                          <GridPane prefHeight="52.0" prefWidth="411.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <Label text="Левый №" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <TextField fx:id="tfPlRsnR" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label text="Правый №" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <TextField fx:id="tfPlRsnL" maxWidth="-Infinity" minWidth="140.0" prefWidth="150.0" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="3" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="5" />
+                                    <StackPane GridPane.rowIndex="6">
+                                       <children>
+                                          <Label text="Редуктор гидронасосов" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbPumpReduct" prefHeight="25.0" prefWidth="298.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                                    <GridPane GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <Label text="Серийный номер:" />
+                                             </children>
+                                          </StackPane>
+                                          <TextField fx:id="tfHPRedSN" maxWidth="-Infinity" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="7" />
+                                    <ComboBox fx:id="cbConcrHMtype" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="tabDisel" text="ДВС">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="42.0" layoutY="39.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="Двигатель:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbDiselType" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Турбокомпрессор №:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField fx:id="tfDiselSN" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <StackPane GridPane.columnIndex="2">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField fx:id="tfTurboCompSN" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="tfTNVDSN" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="ТНВД №:" />
+                                       </children>
+                                    </StackPane>
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabCoolant" text="Система охлаждения">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="174.0" layoutY="100.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="5.0" prefWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="КД сборки:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="3">
+                                       <children>
+                                          <Label text="Радиатор водяной ДВС:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Радиатор масляный ДВС:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Радиатор масляный ГСТ:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Радиатор кондиционера:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbDiselCooler" prefWidth="150.0" GridPane.columnIndex="4" />
+                                    <ComboBox fx:id="cbDiselOilCooler" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cbHydOilCooler" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cbAirCondCooler" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="2" GridPane.rowSpan="4" />
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Привод крыльчатки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbWingDrive" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.rowIndex="5">
+                                       <children>
+                                          <Label text="Тип ПЖД:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbPreHeater" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <StackPane GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField fx:id="tfPreHeaterSN" maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="4" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="5" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="cbWing" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Тип крыльчатки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbCoolantDoc" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabAttachments" text="Навесное оборудование">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="231.0" layoutY="136.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="Гидронасос навесного оборудования:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1">
+                                       <children>
+                                          <ComboBox fx:id="cbAttachPump" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <StackPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Гидронасос привода вентилятора:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <ComboBox fx:id="cbFanPump" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <ComboBox fx:id="cbFanHMot" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Гидромотор привода вентилятора:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Гидрораспределитель:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <ComboBox fx:id="cbHydDistrib" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField maxWidth="160.0" minWidth="140.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <StackPane GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="Переднее оборудование КД:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.rowIndex="5">
+                                       <children>
+                                          <Label text="Заднее оборудование КД:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <children>
+                                          <ComboBox fx:id="cbFrontAttachDoc" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <children>
+                                          <ComboBox fx:id="cbBackAttachDoc" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="ГЦ подъема отвала" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label text="ГЦ перекоса отвала:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label text="ГЦ рыхлительного оборуд.:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                       <children>
+                                          <Label text="Дополнительные ГЦ:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbHCOtvLift" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="cbHCOtvSkew" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="cbHCRipper" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="cbHCExtra" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                    <StackPane GridPane.rowIndex="7">
+                                       <children>
+                                          <Label text="Гидрозамок ГЦ перекоса?" />
+                                       </children>
+                                    </StackPane>
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="8" />
+                                    <StackPane GridPane.rowIndex="6">
+                                       <children>
+                                          <Label text="Лебедка:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <children>
+                                          <ComboBox fx:id="cbWinch" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                       <children>
+                                          <ComboBox fx:id="cbHydLockSkew" prefWidth="150.0" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Ходовая часть">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="140.0" layoutY="106.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="КД сборки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <StackPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Катки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.columnIndex="2">
+                                       <children>
+                                          <Label text="Натяжные колеса:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Гусеницы:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Ширина гусениц:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Кол-во башмаков гусеницы:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Тип шарнира гусениц:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+                                    <StackPane GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="Ведущее колесо:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Кабина">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="183.0" layoutY="116.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="КД сборки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Фильтро-ветиляц. установка" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Магнитола:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="ROPS" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Антивандальные решетки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Электрооборудование">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="171.0" layoutY="100.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="Джойстик хода:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <StackPane GridPane.columnIndex="2">
+                                       <children>
+                                          <Label text="Джойстик управления навесным об.:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <StackPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Контроллер:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Номер прошивки:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Тип фар:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Тип АКБ:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Дополнительно">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="145.0" layoutY="61.0" prefHeight="412.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <Label text="КД ЗИП:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <BorderPane GridPane.rowIndex="1">
+                                       <top>
+                                          <Label text="Дополнительно:" BorderPane.alignment="CENTER" />
+                                       </top>
+                                    </BorderPane>
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <top>
+            <HBox prefHeight="77.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <FlowPane prefHeight="93.0" prefWidth="489.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="161.0" text="Введите номер машины:" />
+                        <TextField fx:id="tfDozSerial" />
+                        <StackPane>
+                           <FlowPane.margin>
+                              <Insets left="20.0" />
+                           </FlowPane.margin>
+                           <children>
+                              <Button fx:id="btnSearch" mnemonicParsing="false" onMouseClicked="#onSearchClicked" prefHeight="33.0" prefWidth="75.0" text="Поиск" />
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onBtnAddClicked" prefHeight="33.0" prefWidth="75.0" text="Добавить" />
+                           </children>
+                        </StackPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </FlowPane>
+                  <StackPane prefHeight="77.0" prefWidth="523.0">
+                     <children>
+                        <ImageView fitHeight="79.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../logo.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets bottom="5.0" />
+                           </StackPane.margin></ImageView>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+         </top>
+         <bottom>
+            <FlowPane alignment="BOTTOM_RIGHT">
+               <children>
+                  <StackPane>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" />
+                     </FlowPane.margin>
+                     <children>
+                        <ButtonBar fx:id="bbView" prefHeight="25.0" prefWidth="512.0">
+                          <buttons>
+                            <Button alignment="CENTER" mnemonicParsing="false" text="Журнал обкатки" />
+                              <Button mnemonicParsing="false" text="Журнал сервиса" />
+                              <Button mnemonicParsing="false" text="Карта ГСМ" />
+                              <Button mnemonicParsing="false" text="Импорт" />
+                          </buttons>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </ButtonBar>
+                        <ButtonBar fx:id="bbAdd" prefHeight="40.0" prefWidth="200.0">
+                          <buttons>
+                            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onBtnSaveClicked" text="Сохранить" />
+                              <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#onBtnCancelClicked" text="Отмена" />
+                          </buttons>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </ButtonBar>
+                     </children>
+                  </StackPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" />
+               </BorderPane.margin>
+            </FlowPane>
+         </bottom>
+      </BorderPane>
+      <Separator />
+      <FlowPane maxHeight="30.0" prefHeight="30.0">
+         <children>
+            <Label fx:id="stateLabel" prefWidth="625.0" text="Label">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
+  </children>
+</VBox>
