@@ -47,7 +47,18 @@ public class TableNames {
             hydLockSkewTable = "hyd_lock_skew",
             frontAttachmentsTable = "front_attach_type",
             backAttachmentsTable = "back_attach_type",
-            winchTable = "winch";
-
-
+            winchTable = "winch",
+    //Bogies
+            bogiesTable = "bogies",
+            bogiesTypesTable = "bogies_types",
+            oneFlangeRollersTable = "one_flange_rollers",
+            twoFlangeRollersTable = "two_flange_rollers",
+            pullOnWheelTable = "pull_on_wheel_types",
+            leaderWheelTable = "leader_wheel_types",
+            caterpillarTypesTable = "caterpillar_types",
+            caterBrandTable = "cater_brand",
+            caterWidthTable = "cater_width",
+            grouserQuantTable = "grouser_quant",
+            jointHingeTable = "joint_hinge",
+            caterStepTable = "cater_step";
 }

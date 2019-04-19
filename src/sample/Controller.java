@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Controller {
@@ -139,6 +140,29 @@ public class Controller {
     private TextField tfFanMot;
     @FXML
     private TextField tfHydDistributor;
+    //Bogies tab
+    @FXML
+    private Tab tabBogies;
+    @FXML
+    private ComboBox<String> cbBogiesDoc;
+    @FXML
+    private ComboBox<String> cbPullOnWheel;
+    @FXML
+    private ComboBox<String> cbOneFlangeRollers;
+    @FXML
+    private ComboBox<String> cbTwoFlangeRollers;
+    @FXML
+    private ComboBox<String> cbCaterpillar;
+    @FXML
+    private ComboBox<String> cbCaterWidth;
+    @FXML
+    private ComboBox<String> cbGrouserQuant;
+    @FXML
+    private ComboBox<String> cbJointHinge;
+    @FXML
+    private ComboBox<String> cbCaterStep;
+    @FXML
+    private ComboBox<String> cbLeaderWheel;
 
     @FXML
     void onBtnAddClicked(ActionEvent event) {
@@ -211,6 +235,17 @@ public class Controller {
         cbHCOtvSkew.setItems(hydCylList);
         cbHCRipper.setItems(hydCylList);
         cbHCExtra.setItems(hydCylList);
+
+        cbBogiesDoc.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.bogiesTypesTable)));
+        cbPullOnWheel.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.pullOnWheelTable)));
+        cbOneFlangeRollers.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.oneFlangeRollersTable)));
+        cbTwoFlangeRollers.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.twoFlangeRollersTable)));
+        cbLeaderWheel.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.leaderWheelTable)));
+        cbCaterpillar.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.caterBrandTable)));
+        cbCaterWidth.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.caterWidthTable)));
+        cbGrouserQuant.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.grouserQuantTable)));
+        cbJointHinge.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.jointHingeTable)));
+        cbCaterStep.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.caterStepTable)));
 
     }
 
@@ -352,6 +387,29 @@ public class Controller {
                     new ArrayList<>(List.of(cbAttachPump, cbFanPump, cbFanHMot, cbHydDistrib, cbFrontAttachDoc, cbBackAttachDoc, cbWinch, cbHydLockSkew, cbHCOtvLift, cbHCOtvSkew, cbHCRipper, cbHCExtra)),
                     new ArrayList<>(List.of(tfAttachPump, tfFanPump, tfFanMot, tfHydDistributor)));
             savable = aets;
+        }
+        else if(tabBogies.isSelected()){
+            BogiesEntityToSave bets = new BogiesEntityToSave();
+
+            bets.setId_bogies_types(DBHelper.getIdFromModel(cbBogiesDoc.getValue(), TableNames.bogiesTypesTable));
+            bets.setId_pull_on_wheel_types(DBHelper.getIdFromModel(cbPullOnWheel.getValue(), TableNames.pullOnWheelTable));
+            bets.setId_leader_wheel_types(DBHelper.getIdFromModel(cbLeaderWheel.getValue(), TableNames.leaderWheelTable));
+            bets.setId_one_flange_rollers(DBHelper.getIdFromModel(cbOneFlangeRollers.getValue(), TableNames.oneFlangeRollersTable));
+            bets.setId_two_flange_rollers(DBHelper.getIdFromModel(cbTwoFlangeRollers.getValue(), TableNames.twoFlangeRollersTable));
+
+            HashMap<String, String> fields = new HashMap<>();
+            fields.put("id_cater_width", String.valueOf(DBHelper.getIdFromModel(cbCaterWidth.getValue(), TableNames.caterWidthTable)));
+            fields.put("id_grouser_quant", String.valueOf(DBHelper.getIdFromModel(cbGrouserQuant.getValue(), TableNames.grouserQuantTable)));
+            fields.put("id_joint_hinge", String.valueOf(DBHelper.getIdFromModel(cbJointHinge.getValue(), TableNames.jointHingeTable)));
+            fields.put("id_cater_step", String.valueOf(DBHelper.getIdFromModel(cbCaterStep.getValue(), TableNames.caterStepTable)));
+            fields.put("id_cater_brand", String.valueOf(DBHelper.getIdFromModel(cbCaterpillar.getValue(), TableNames.caterBrandTable)));
+            bets.setId_caterpillar_types(DBHelper.getIdFromFields(TableNames.caterpillarTypesTable, fields));
+
+            stateLabel.setText("Конфигурация ходовой части успешно сохранена, заполните остальные вкладки");
+            ControllerHelper.setUneditableFields(
+                    new ArrayList<>(List.of(cbBogiesDoc, cbPullOnWheel, cbOneFlangeRollers, cbTwoFlangeRollers, cbCaterpillar, cbCaterWidth, cbGrouserQuant, cbJointHinge, cbCaterStep, cbLeaderWheel)),
+                    new ArrayList<>());
+            savable = bets;
         }
 
         else savable = null;

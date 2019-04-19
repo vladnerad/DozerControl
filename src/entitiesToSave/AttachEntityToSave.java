@@ -7,11 +7,8 @@ import java.util.HashMap;
 
 public class AttachEntityToSave implements SavableToDB {
 
-    private HydCylEntityToSave hydCylEntityToSave;
-
     public AttachEntityToSave(HydCylEntityToSave hydCylEntityToSave) {
-        this.hydCylEntityToSave = hydCylEntityToSave;
-        this.hydCylEntityToSave.saveToDB();
+        hydCylEntityToSave.saveToDB();
 
         HashMap<String, String> fields = new HashMap<>();
         fields.put("id_hyd_cyl_otv_lift", String.valueOf(hydCylEntityToSave.getId_hyd_cyl_otv_lift()));

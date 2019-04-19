@@ -564,7 +564,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Ходовая часть">
+                  <Tab fx:id="tabBogies" text="Ходовая часть">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -589,32 +589,32 @@
                                           <Label text="КД сборки:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="cbBogiesDoc" prefWidth="150.0" GridPane.columnIndex="1" />
                                     <StackPane GridPane.rowIndex="1">
                                        <children>
                                           <Label text="Катки:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cbOneFlangeRollers" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cbTwoFlangeRollers" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                     <StackPane GridPane.columnIndex="2">
                                        <children>
                                           <Label text="Натяжные колеса:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <ComboBox fx:id="cbPullOnWheel" prefWidth="150.0" GridPane.columnIndex="3" />
                                     <StackPane GridPane.rowIndex="2">
                                        <children>
                                           <Label text="Гусеницы:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cbCaterpillar" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <StackPane GridPane.rowIndex="3">
                                        <children>
                                           <Label text="Ширина гусениц:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="cbCaterWidth" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
                                        <children>
                                           <Label text="Кол-во башмаков гусеницы:" />
@@ -625,15 +625,21 @@
                                           <Label text="Тип шарнира гусениц:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="cbGrouserQuant" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cbJointHinge" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                     <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="5" />
                                     <StackPane GridPane.rowIndex="4">
                                        <children>
                                           <Label text="Ведущее колесо:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="cbLeaderWheel" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="cbCaterStep" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="Шаг гусеницы:" />
+                                       </children>
+                                    </StackPane>
                                  </children>
                               </GridPane>
                            </children></AnchorPane>
