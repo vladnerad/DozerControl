@@ -163,6 +163,41 @@ public class Controller {
     private ComboBox<String> cbCaterStep;
     @FXML
     private ComboBox<String> cbLeaderWheel;
+    //Bogies tab
+    @FXML
+    private Tab tabCabin;
+    @FXML
+    private ComboBox<String> cbCabinDoc;
+    @FXML
+    private ComboBox<String> cbFVU;
+    @FXML
+    private ComboBox<String> cbRadio;
+    @FXML
+    private ComboBox<String> cbRops;
+    @FXML
+    private ComboBox<String> cbAntivandalLattice;
+    @FXML
+    private ComboBox<String> cbAirCond;
+    @FXML
+    private ComboBox<String> cbAirHeater;
+    //Electrics tab
+    @FXML
+    private Tab tabElectrics;
+    @FXML
+    private ComboBox<String> cbJoyMove;
+    @FXML
+    private ComboBox<String> cbJoyAttach;
+    @FXML
+    private ComboBox<String> cbController;
+    @FXML
+    private TextField tfControllerSN;
+    @FXML
+    private ComboBox<String> cbProgramVer;
+    @FXML
+    private ComboBox<String> cbLighters;
+    @FXML
+    private ComboBox<String> cbBattery;
+
 
     @FXML
     void onBtnAddClicked(ActionEvent event) {
@@ -247,6 +282,20 @@ public class Controller {
         cbJointHinge.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.jointHingeTable)));
         cbCaterStep.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.caterStepTable)));
 
+        cbCabinDoc.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.cabinDocTable)));
+        cbFVU.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.fvuTable)));
+        cbRadio.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.radioPlayerTable)));
+        cbRops.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.ropsTable)));
+        cbAntivandalLattice.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.antivandLatticeTable)));
+        cbAirCond.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.airConditionerTable)));
+        cbAirHeater.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.airHeaterTable)));
+
+        cbJoyMove.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.motionJoyTable)));
+        cbJoyAttach.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.attachJoyTable)));
+        cbController.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.controllerTypesTable)));
+        //cbProgramVer.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.pr)));
+        cbLighters.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.lightersTable)));
+        cbBattery.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.batteryTable)));
     }
 
     @FXML
@@ -262,10 +311,8 @@ public class Controller {
 
     @FXML
     void onPumpBrandChoosen(ActionEvent event) {
-        PumpsMotion pumpsMotion = new PumpsMotion(cbPumpType.getValue());
-        DBHelper.getDataFromDB(pumpsMotion);
-        cbConcrHPtype.setItems(FXCollections.observableList(pumpsMotion.getModels()));
-//        cbConcrHPtype.setItems(FXCollections.observableList(DBHelper.getModelsFromTable(TableNames.hydPumpMotionTypesTable)));   --- change query
+        cbConcrHPtype.setItems(FXCollections.observableList(DBHelper.getModelsFromField(TableNames.hydPumpMotionTypesTable, "id_brands", DBHelper.getIdFromModel(cbPumpType.getValue(), TableNames.brandTable))));
+
     }
 
     @FXML
@@ -276,16 +323,19 @@ public class Controller {
 
     @FXML
     void onPlanetReductChoosen(ActionEvent event) {
-        PlanetReductor planetReductor = new PlanetReductor(cbPlanetReduct.getValue());
-        DBHelper.getDataFromDB(planetReductor);
-        cbConcrPlRed.setItems(FXCollections.observableList(planetReductor.getModels()));
+        cbConcrPlRed.setItems(FXCollections.observableList(DBHelper.getModelsFromField(TableNames.planetReductorTypesTable, "id_brands", DBHelper.getIdFromModel(cbPlanetReduct.getValue(), TableNames.brandTable))));
+
     }
 
     @FXML
     void onMotBrandChoosen(ActionEvent event) {
-        MotorsMotion motorsMotion = new MotorsMotion(cbHMotType.getValue());
-        DBHelper.getDataFromDB(motorsMotion);
-        cbConcrHMtype.setItems(FXCollections.observableList(motorsMotion.getModels()));
+        cbConcrHMtype.setItems(FXCollections.observableList(DBHelper.getModelsFromField(TableNames.hydMotorMotionTypesTable, "id_brands", DBHelper.getIdFromModel(cbHMotType.getValue(), TableNames.brandTable))));
+
+    }
+
+    @FXML
+    void onControllerChoosen(ActionEvent event) {
+        cbProgramVer.setItems(FXCollections.observableList(DBHelper.getModelsFromField(TableNames.softwareTable, "id_controller_types", DBHelper.getIdFromModel(cbController.getValue(), TableNames.controllerTypesTable))));
     }
 
     @FXML
@@ -313,9 +363,7 @@ public class Controller {
 
             savable = tets;
 
-//        tets.saveToDB();
-
-            stateLabel.setText("Конфигурация трансмиссии успешно сохранена, заполните остальные вкладки");
+            stateLabel.setText("Конфигурация трансмиссии успешно сохранена, заполните остальные вкладки");//сделать текстовую константу с 1 переменной
             ControllerHelper.setUneditableFields(
                     new ArrayList<>(List.of(cbPumpType, cbHMotType, cbPlanetReduct, cbPumpReduct, cbConcrHPtype, cbConcrHMtype, cbConcrPlRed)),
                     new ArrayList<>(List.of(tfPumpLsn, tfPumpRsn, tfHMLsn, tfHMRsn, tfPlRsnL, tfPlRsnR, tfHPRedSN)));
@@ -332,7 +380,7 @@ public class Controller {
 
 //            dets.saveToDB();
 
-            stateLabel.setText("Конфигурация двигателя успешно сохранена, заполните остальные вкладки");
+            stateLabel.setText("Конфигурация двигателя успешно сохранена, заполните остальные вкладки");//сделать текстовую константу с 1 переменной
             ControllerHelper.setUneditableFields(
                     new ArrayList<>(List.of(cbDiselType)),
                     new ArrayList<>(List.of(tfDiselSN, tfTNVDSN, tfTurboCompSN)));
@@ -352,7 +400,7 @@ public class Controller {
 
             savable = csets;
 
-            stateLabel.setText("Конфигурация системы охлаждения успешно сохранена, заполните остальные вкладки");
+            stateLabel.setText("Конфигурация системы охлаждения успешно сохранена, заполните остальные вкладки");//сделать текстовую константу с 1 переменной
             ControllerHelper.setUneditableFields(
                     new ArrayList<>(List.of(cbCoolantDoc, cbDiselCooler, cbDiselOilCooler, cbHydOilCooler, cbAirCondCooler, cbPreHeater, cbWing, cbWingDrive)),
                     new ArrayList<>(List.of(tfPreHeaterSN)));
@@ -382,7 +430,7 @@ public class Controller {
             aets.setSerial_hyd_distributor(tfHydDistributor.getText());
 
 
-            stateLabel.setText("Конфигурация навесного оборудования успешно сохранена, заполните остальные вкладки");
+            stateLabel.setText("Конфигурация навесного оборудования успешно сохранена, заполните остальные вкладки");//сделать текстовую константу с 1 переменной
             ControllerHelper.setUneditableFields(
                     new ArrayList<>(List.of(cbAttachPump, cbFanPump, cbFanHMot, cbHydDistrib, cbFrontAttachDoc, cbBackAttachDoc, cbWinch, cbHydLockSkew, cbHCOtvLift, cbHCOtvSkew, cbHCRipper, cbHCExtra)),
                     new ArrayList<>(List.of(tfAttachPump, tfFanPump, tfFanMot, tfHydDistributor)));
@@ -405,11 +453,44 @@ public class Controller {
             fields.put("id_cater_brand", String.valueOf(DBHelper.getIdFromModel(cbCaterpillar.getValue(), TableNames.caterBrandTable)));
             bets.setId_caterpillar_types(DBHelper.getIdFromFields(TableNames.caterpillarTypesTable, fields));
 
-            stateLabel.setText("Конфигурация ходовой части успешно сохранена, заполните остальные вкладки");
+            stateLabel.setText("Конфигурация ходовой части успешно сохранена, заполните остальные вкладки");//сделать текстовую константу с 1 переменной
             ControllerHelper.setUneditableFields(
                     new ArrayList<>(List.of(cbBogiesDoc, cbPullOnWheel, cbOneFlangeRollers, cbTwoFlangeRollers, cbCaterpillar, cbCaterWidth, cbGrouserQuant, cbJointHinge, cbCaterStep, cbLeaderWheel)),
                     new ArrayList<>());
             savable = bets;
+        }
+        else if(tabCabin.isSelected()){
+            CabinEntityToSave cets = new CabinEntityToSave();
+
+            cets.setId_cabin_type(DBHelper.getIdFromModel(cbCabinDoc.getValue(), TableNames.cabinDocTable));
+            cets.setId_air_conditioner(DBHelper.getIdFromModel(cbAirCond.getValue(), TableNames.airConditionerTable));
+            cets.setId_air_heater(DBHelper.getIdFromModel(cbAirHeater.getValue(), TableNames.airHeaterTable));
+            cets.setId_filt_vent_set(DBHelper.getIdFromModel(cbFVU.getValue(), TableNames.fvuTable));
+            cets.setId_radio_player(DBHelper.getIdFromModel(cbRadio.getValue(), TableNames.radioPlayerTable));
+            cets.setId_rops(DBHelper.getIdFromModel(cbRops.getValue(), TableNames.ropsTable));
+            cets.setId_antivandal_lattice(DBHelper.getIdFromModel(cbAntivandalLattice.getValue(), TableNames.antivandLatticeTable));
+
+            stateLabel.setText("Конфигурация кабины успешно сохранена, заполните остальные вкладки"); //сделать текстовую константу с 1 переменной
+            ControllerHelper.setUneditableFields(
+                    new ArrayList<>(List.of(cbCabinDoc, cbFVU, cbRadio, cbRops, cbAirCond, cbAirHeater, cbAntivandalLattice)),
+                    new ArrayList<>());
+            savable = cets;
+        }
+        else if(tabElectrics.isSelected()){
+            ElectricsEntityToSave eets = new ElectricsEntityToSave();
+
+            eets.setId_motion_joystick(DBHelper.getIdFromModel(cbJoyMove.getValue(), TableNames.motionJoyTable));
+            eets.setId_attach_joystick(DBHelper.getIdFromModel(cbJoyAttach.getValue(), TableNames.attachJoyTable));
+            eets.setSerial_controller(tfControllerSN.getText());
+            eets.setId_software_ver(DBHelper.getIdFromModel(cbProgramVer.getValue(), TableNames.softwareTable));
+            eets.setId_lighters(DBHelper.getIdFromModel(cbLighters.getValue(), TableNames.lightersTable));
+            eets.setId_battery(DBHelper.getIdFromModel(cbBattery.getValue(), TableNames.batteryTable));
+
+            stateLabel.setText("Конфигурация электрооборудования успешно сохранена, заполните остальные вкладки"); //сделать текстовую константу с 1 переменной
+            ControllerHelper.setUneditableFields(
+                    new ArrayList<>(List.of(cbJoyMove, cbJoyAttach, cbController, cbProgramVer, cbLighters, cbBattery)),
+                    new ArrayList<>(List.of(tfControllerSN)));
+            savable = eets;
         }
 
         else savable = null;

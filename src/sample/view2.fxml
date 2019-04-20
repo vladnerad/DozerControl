@@ -645,7 +645,7 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Кабина">
+                  <Tab fx:id="tabCabin" text="Кабина">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -669,9 +669,9 @@
                                           <Label text="КД сборки:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cbCabinDoc" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="cbFVU" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cbRops" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                     <StackPane GridPane.rowIndex="1">
                                        <children>
                                           <Label text="Фильтро-ветиляц. установка" />
@@ -679,7 +679,7 @@
                                     </StackPane>
                                     <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
-                                          <Label text="Серийный номер:" />
+                                          <Label text="ROPS:" />
                                        </children>
                                     </StackPane>
                                     <StackPane GridPane.rowIndex="2">
@@ -687,32 +687,32 @@
                                           <Label text="Магнитола:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cbRadio" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                       <children>
-                                          <Label text="Серийный номер:" />
-                                       </children>
-                                    </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                    <StackPane GridPane.rowIndex="3">
-                                       <children>
-                                          <Label text="ROPS" />
-                                       </children>
-                                    </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
                                        <children>
                                           <Label text="Антивандальные решетки:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="cbAntivandalLattice" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                     <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                                    <StackPane GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Кондиционер:" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Автономный подогреватель:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox fx:id="cbAirCond" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="cbAirHeater" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Электрооборудование">
+                  <Tab fx:id="tabElectrics" text="Электрооборудование">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -736,38 +736,44 @@
                                           <Label text="Джойстик хода:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="cbJoyMove" prefWidth="150.0" GridPane.columnIndex="1" />
                                     <StackPane GridPane.columnIndex="2">
                                        <children>
                                           <Label text="Джойстик управления навесным об.:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <ComboBox fx:id="cbJoyAttach" prefWidth="150.0" GridPane.columnIndex="3" />
                                     <StackPane GridPane.rowIndex="1">
                                        <children>
                                           <Label text="Контроллер:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <ComboBox fx:id="cbController" onAction="#onControllerChoosen" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
                                        <children>
                                           <Label text="Номер прошивки:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <StackPane GridPane.rowIndex="2">
+                                    <ComboBox fx:id="cbProgramVer" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <StackPane GridPane.rowIndex="3">
                                        <children>
                                           <Label text="Тип фар:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <ComboBox fx:id="cbLighters" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
                                        <children>
                                           <Label text="Тип АКБ:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="cbBattery" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                     <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                                    <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Серийный номер:" />
+                                       </children>
+                                    </StackPane>
+                                    <TextField fx:id="tfControllerSN" maxWidth="150.0" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children></AnchorPane>
@@ -792,19 +798,25 @@
                                     <RowConstraints maxHeight="15.0" minHeight="5.0" prefHeight="10.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <StackPane>
+                                    <StackPane GridPane.rowIndex="1">
                                        <children>
                                           <Label text="КД ЗИП:" />
                                        </children>
                                     </StackPane>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
-                                    <BorderPane GridPane.rowIndex="1">
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <BorderPane GridPane.rowIndex="2">
                                        <top>
                                           <Label text="Дополнительно:" BorderPane.alignment="CENTER" />
                                        </top>
                                     </BorderPane>
-                                    <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                                     <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                                    <StackPane>
+                                       <children>
+                                          <Label text="Рама КД:" />
+                                       </children>
+                                    </StackPane>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                            </children></AnchorPane>

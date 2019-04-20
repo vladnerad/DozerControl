@@ -33,7 +33,7 @@ public class Brands implements Processable {
 
     @Override
     public String getSQLcommand() {
-        return "SELECT name FROM brands;";
+        return "SELECT model FROM brands;";
     }
 
     @Override

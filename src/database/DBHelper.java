@@ -3,6 +3,7 @@ package database;
 import id.AbstractId;
 import id.AbstractIntermediateId;
 import id.AbstractModel;
+import id.AbstractModelsList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -52,6 +53,13 @@ public class DBHelper {
         AbstractIntermediateId abstractIntermediateId = AbstractIntermediateId.getInstance(table, conditions);
         getDataFromDB(abstractIntermediateId);
         return abstractIntermediateId.getId();
+    }
+
+    public static ArrayList<String> getModelsFromField(String table, String field, int someId){
+        AbstractModelsList.reset();
+        AbstractModelsList abstractModelsList = AbstractModelsList.getInstance(table, field, someId);
+        getDataFromDB(abstractModelsList);
+        return abstractModelsList.getModels();
     }
 
     public static int putDataToDB(String sql){

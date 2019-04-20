@@ -60,5 +60,23 @@ public class TableNames {
             caterWidthTable = "cater_width",
             grouserQuantTable = "grouser_quant",
             jointHingeTable = "joint_hinge",
-            caterStepTable = "cater_step";
+            caterStepTable = "cater_step",
+    //Cabin
+            cabinTable = "cabin",
+            cabinDocTable = "cabin_type",
+            airConditionerTable = "air_conditioner",
+            airHeaterTable = "air_heater",
+            fvuTable = "filt_vent_set",
+            radioPlayerTable = "radio_player",
+            ropsTable = "rops",
+            antivandLatticeTable = "antivandal_lattice",
+    //Electrics
+            electricsTable = "electrics",
+            motionJoyTable = "motion_joystick",
+            attachJoyTable = "attach_joystick",
+            controllerTable = "controller",
+            lightersTable = "lighters",
+            batteryTable = "battery",
+            controllerTypesTable = "controller_types",
+            softwareTable = "software_ver";
 }
